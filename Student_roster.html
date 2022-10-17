@@ -1,0 +1,123 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Club Membership</title>
+
+  <style>
+      
+      .selected {
+        text-decoration: line-through ;
+        font-style: italic;
+        color: gray;
+      }
+
+      input {
+          width: 100%;
+          padding: 5px;
+          margin: 5px 5px 5px 0px;
+          box-sizing: border-box;
+
+      }
+
+      :valid {
+          c
+      }
+
+  </style>
+
+</head>
+<body>
+
+    <h1>Student Club Roster</h1>
+
+    <h2>Add Students</h2>
+
+    <label for="student-name">Student Name</label><input id="student-name" name="student-name" required>
+    <br>
+    <label for="student-id">Student ID</label><input id="student-id" name="student-id" required>
+    <br>
+    <label for="student-gpa">Student GPA</label><input id="student-gpa" name="student-gpa" type="number" required>
+    <br>
+    <button id="add-student">Add Student</button>    
+
+    <h2>Student List</h2>
+
+    <p>There are 
+        <span id="student-count">
+          <!-- use JavaScript to count the number of students, and show here -->
+        </span> 
+    student(s) in the club.</p>
+    
+
+    <ul id="student-list">
+        <!-- use JavaScript to create li elements  -->
+    </ul>
+
+    <button id="remove-selected-students">Remove selected students</button>
+
+<script>
+    /**
+  let saveButton = document.querySelector('add-student')
+  let deleteButton = document.querySelector('remove-selected-students')
+  let studentnameInput = document.querySelector('student-name')
+  let studentidInput = document.querySelector('student-id')
+  let studentgpaInput = document.querySelector('student-gpa')
+
+  saveButton.addEventListener('click', function() {
+
+    let name = studentnameInput.value
+
+    if (studentname.length < 2) {
+    welcomeMessage.innerHTML = 'Your name must be at least two letters'
+    } 
+    if(studentid.lenght <2)
+
+    })**/
+//student info adding code below
+    let studentCountSpan = document.querySelector('#student-count')
+    let studentNameInput = document.querySelector('#student-name')
+    let studentIdInput = document.querySelector('#student-id')
+    let studentGpaInput = document.querySelector('#student-gpa')
+    let addNewStudentButton = document.querySelector('#add-student')
+    let studentListElement = document.querySelector('#student-list')
+    let removeStudentButton = document.querySelector('#remove-selected-students')
+
+    let studentCount = 0 
+    studentCountSpan.innerHTML = studentCount
+    
+    addNewStudentButton.addEventListener('click', function() {
+        
+ /*       for(var i=0;i<=errorMsg.length-1;i++){
+          newErrorMsg.innerHTML += "<li>"+errorMsg[i]+"</li>"
+          alert(newErrorMsg)
+}  */
+        let newStudentName = studentNameInput.value
+        let newStudentId = studentIdInput.value
+        let newStudentGpa = studentGpaInput.value
+
+   
+        let newStudentListItemElement = document.createElement('li')
+        newStudentListItemElement.innerHTML = `Name: ${newStudentName} Id: ${newStudentId} Gpa: ${newStudentGpa}`
+        
+        studentListElement.appendChild(newStudentListItemElement)
+        studentCount = studentCount + 1 
+        studentCountSpan.innerHTML = studentCount
+
+
+//mouse click and select function
+    newStudentListItemElement.addEventListener('click', function() {
+        newStudentListItemElement.classList.toggle('selected') 
+    })
+    })
+    //deleting function
+    removeStudentButton.addEventListener('click', function() {
+        let selectedStudentListItems = document.querySelectorAll('.selected')
+        selectedStudentListItems.forEach(function(studentElement) { 
+            studentElement.remove() 
+    })
+})
+</script>
+
+</body>
+</html>
